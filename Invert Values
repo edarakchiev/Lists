@@ -1,0 +1,8 @@
+number_list = list(map(int, input().split(" ")))
+
+opposite_list = []
+
+for number in number_list:
+    opposite_list.append(number * (-1))
+
+print(opposite_list)
