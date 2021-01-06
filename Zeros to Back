@@ -1,0 +1,8 @@
+number_list = list(map(int, input().split(", ")))
+
+for el in number_list:
+    if el == 0:
+        index = number_list.index(0)
+        number_list.pop(index)
+        number_list.append(0)
+print(number_list)
