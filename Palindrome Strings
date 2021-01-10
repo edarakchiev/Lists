@@ -1,0 +1,10 @@
+word = input().split()
+search_palindrome = input()
+palindrome = [el for el in word if el == el[::-1]]
+
+print(palindrome)
+
+if search_palindrome in palindrome:
+    print(f"Found palindrome {palindrome.count(search_palindrome)} times")
+else:
+    print("Found palindrome 0 times")
