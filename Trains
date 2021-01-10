@@ -1,0 +1,35 @@
+def add_func(n_list, n_people):
+    n_list[-1] += n_people
+
+
+def insert_func(n_list, i, n_people):
+    n_list[i] += n_people
+
+
+def leave_func(n_list, i, n_people):
+    n_list[i] -= n_people
+
+
+train_num = int(input())
+train_list = [0 for _ in range(0, train_num)]
+
+command = input()
+
+while not command == "End":
+    data = command.split()
+
+    if data[0] == "add":
+        index = int(data[1])
+        add_func(train_list, index)
+    elif data[0] == "insert":
+        index = int(data[1])
+        n = int(data[2])
+        insert_func(train_list, index, n)
+    elif data[0] == "leave":
+        index = int(data[1])
+        n = int(data[2])
+        leave_func(train_list, index, n)
+
+    command = input()
+    
+print(train_list)
