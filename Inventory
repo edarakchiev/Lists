@@ -1,0 +1,38 @@
+def collect(items, item):
+    if item not in items:
+        items.append(item)
+
+
+def drop(items, item):
+    if item in items:
+        items.remove(item)
+
+
+def combine_items(items, item):
+    old_item, new_item = item.split(":")
+    if old_item in items:
+        items.insert(items.index(old_item) + 1, new_item)
+
+
+def renew(items, item):
+    if item in items:
+        items.remove(item)
+        items.append(item)
+
+
+items = input().split(", ")
+
+data = input()
+while not data == "Craft!":
+    command, item = data.split(" - ")
+    if command == "Collect":
+        collect(items, item)
+    elif command == "Drop":
+        drop(items, item)
+    elif command == "Combine Items":
+        combine_items(items, item)
+    elif command == "Renew":
+        renew(items, item)
+    data = input()
+
+print(", ".join(items))
