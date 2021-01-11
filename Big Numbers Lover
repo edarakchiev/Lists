@@ -1,0 +1,4 @@
+number_list = input().split()
+number_list.sort()
+number_list.reverse()
+print("".join(number_list))
