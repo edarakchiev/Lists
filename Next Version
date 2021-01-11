@@ -1,0 +1,14 @@
+software_version = list(map(int, input().split(".")))
+
+data_1 = software_version[0]
+data_2 = software_version[1]
+data_3 = software_version[2]
+
+data_3 += 1
+if data_3 == 10:
+    data_2 += 1
+    data_3 = 0
+    if data_2 == 10:
+        data_1 += 1
+        data_2 = 0
+print(f"{data_1}.{data_2}.{data_3}")
