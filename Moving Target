@@ -1,0 +1,44 @@
+def shoot(target_num, index, power):
+    if 0 <= index < len(target_num):
+        target_num[index] -= power
+        if target_num[index] <= 0:
+            target_num.pop(index)
+
+
+def add(target_num, index, power):
+    if 0 <= index < len(target_num):
+        target_num.insert(index, power)
+    else:
+        print("Invalid placement!")
+
+
+def strike(target_num, index, power):
+    left_radius = index - power
+    right_radius = index + power
+    if left_radius >= 0 and right_radius < len(target_num):
+        left_side = target_num[:left_radius]
+        right_side = target_num[right_radius + 1:]
+        target_num = left_side + right_side
+        return target_num
+    else:
+        print("Strike missed!")
+        return target_num
+
+
+target_num = list(map(int, input().split()))
+
+while True:
+    data = input().split()
+    command = data[0]
+    if command == "End":
+        break
+    index = int(data[1])
+    power = int(data[2])
+    if command == "Shoot":
+        shoot(target_num, index, power)
+    elif command == "Add":
+        add(target_num, index, power)
+    elif command == "Strike":
+        target_num = strike(target_num, index, power)
+
+print("|".join([str(el) for el in target_num]))
