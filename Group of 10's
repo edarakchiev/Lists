@@ -1,0 +1,15 @@
+number_list = list(map(int, input().split(", ")))
+max_value = max(number_list)
+list_rem = []
+
+if max_value % 10 == 0:
+    n_range = (max_value // 10) * 10
+else:
+    n_range = (max_value // 10) * 10 + 10
+
+for i in range(10, n_range + 10, 10):
+    for num in number_list:
+        if (i - 10) < num <= i:
+            list_rem.append(num)
+    print(f"Group of {i}'s: {list_rem}")
+    list_rem.clear()
