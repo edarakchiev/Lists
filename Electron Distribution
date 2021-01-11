@@ -1,0 +1,15 @@
+n_electron = int(input())
+
+list_shell = []
+index = 0
+while n_electron > 0:
+    index += 1
+    electron = 2 * index ** 2
+    if n_electron < electron:
+        #num = electron - n_electron
+        list_shell.append(n_electron)
+        break
+    list_shell.append(electron)
+    n_electron -= electron
+
+print(list_shell)
